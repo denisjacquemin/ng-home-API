@@ -1,0 +1,1 @@
+denisjacquemin$ mongoimport --db simple --collection properties --jsonArray API/seed/properties.json

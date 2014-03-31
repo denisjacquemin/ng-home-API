@@ -1,0 +1,94 @@
+[
+    {
+        "id": "1",
+        "title": "Maison grand rue Marloie",
+        "description" : "Bonne maison d'habitation en pierres du pays avec jardin, parfait état d'entretien, le tout sis sur une parcelle de 347m² le long de l'axe reliant Marloie à la ville de Marche. Cette situation vous permettra de profiter de la proximité des commerces, établissements scolaires, transports en commun (TEC et gare SNCB), loisirs et d'un accès rapide aux autoroutes. Composition des pièces: cave, hall d'entrée, bureau, cuisine équipée, buanderie + WC, vaste living, véranda, hall de nuit, 4 chambres, salle de bains + WC et grenier aménageable (85m²). CC mazout et double vitrage. A visiter sans plus tarder! WWW.CLOSON.BE",
+        "price" : "175000",
+        "bedroomcount": "4",
+        "address": "6900 MARLOIE (MARCHE-EN-FAMENNE)",
+        "urlid": "Marloie/maison_grand_rue_marloie",
+        "latitude": "50.8333",
+        "longitude": "4.0",
+        "images" : [
+            "4622179_1.jpg",
+            "4622179_2.jpg",
+            "4622179_3.jpg",
+            "4622179_4.jpg",
+            "4622179_5.jpg",
+            "4622179_6.jpg"
+        ],
+        "agency" : {
+            "id": "1",
+            "title": "Les Viviers",
+            "logo": "lesviviers.png"
+        }
+
+    },
+    {
+        "id": "2",
+        "title": "Excellente maison dans quartier résidentiel paisible",
+        "description" : "VISITES : SUR RENDEZ-VOUS en contactant Me Frédéric HUART, avocat et curateur, à Hotton, Petite Rue de la Vallée, 12, au gsm 0475 64 26 34 ou au bureau n° 084 45 73 37. FAIRE OFFRE FERME AU CURATEUR, à l'adresse ci-dessus ou par fax 084 45 73 22",
+        "price" : "250000",
+        "bedroomcount": "5",
+        "address": "rue des Mésanges 3 6900 Marche-en-Famenne",
+        "urlid": "Marche-en-Famenne/excellente_maison_dans_quartier_residentiel_paisible",
+        "images" : [
+            "4710991_1.jpg",
+            "4710991_2.jpg",
+            "4710991_3.jpg",
+            "4622179_4.jpg",
+            "4710991_4.jpg",
+            "4710991_8.jpg"
+        ],
+        "agency" : {
+            "id": "1",
+            "title": "Les Viviers",
+            "logo": "lesviviers.png"
+        }
+    },
+    {
+        "id": "3",
+        "title": "Excellente maison dans quartier résidentiel paisible",
+        "description" : "VISITES : SUR RENDEZ-VOUS en contactant Me Frédéric HUART, avocat et curateur, à Hotton, Petite Rue de la Vallée, 12, au gsm 0475 64 26 34 ou au bureau n° 084 45 73 37. FAIRE OFFRE FERME AU CURATEUR, à l'adresse ci-dessus ou par fax 084 45 73 22",
+        "price" : "250000",
+        "bedroomcount": "5",
+        "address": "rue des Mésanges 3 6900 Marche-en-Famenne",
+        "urlid": "Marche-en-Famenne/excellente_maison_dans_quartier_residentiel_paisible",
+        "images" : [
+            "4710991_2.jpg",
+            "4710991_1.jpg",
+            "4710991_3.jpg",
+            "4622179_4.jpg",
+            "4710991_4.jpg",
+            "4710991_8.jpg"
+        ],
+        "agency" : {
+            "id": "1",
+            "title": "Les Viviers",
+            "logo": "lesviviers.png"
+        }
+    },
+    {
+        "id": "3",
+        "title": "Excellente maison dans quartier résidentiel paisible",
+        "description" : "VISITES : SUR RENDEZ-VOUS en contactant Me Frédéric HUART, avocat et curateur, à Hotton, Petite Rue de la Vallée, 12, au gsm 0475 64 26 34 ou au bureau n° 084 45 73 37. FAIRE OFFRE FERME AU CURATEUR, à l'adresse ci-dessus ou par fax 084 45 73 22",
+        "price" : "250000",
+        "bedroomcount": "5",
+        "address": "rue des Mésanges 3 6900 Marche-en-Famenne",
+        "urlid": "Marche-en-Famenne/excellente_maison_dans_quartier_residentiel_paisible",
+        "images" : [
+            "4710991_4.jpg",
+            "4710991_1.jpg",
+            "4710991_3.jpg",
+            "4622179_2.jpg",
+            "4710991_4.jpg",
+            "4710991_8.jpg"
+        ],
+        "agency" : {
+            "id": "1",
+            "title": "Les Viviers",
+            "logo": "lesviviers.png"
+        }
+    }
+
+]
