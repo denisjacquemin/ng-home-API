@@ -1,1 +1,25 @@
-denisjacquemin$ mongoimport --db simple --collection properties --jsonArray API/seed/properties.json
+mongoimport --db simple --collection properties --jsonArray API/seed/properties.json
+db.properties.ensureIndex({loc: "2dsphere"})
+
+
+Proximity to a GeoJSON Point
+Proximity queries return the points closest to the defined point and sorts the results by distance. A proximity query on GeoJSON data requires a 2dsphere index.
+
+To query for proximity to a GeoJSON point, use either the $near operator or geoNear command. Distance is in meters.
+
+The $near uses the following syntax:
+
+db.<collection>.find( { <location field> :
+                         { $near :
+                           { $geometry :
+                              { type : "Point" ,
+                                coordinates : [ <longitude> , <latitude> ] } ,
+                             $maxDistance : <distance in meters>
+                      } } } )
+
+db.runCommand( { geoNear : <collection> ,
+              near : { type : "Point" ,
+                       coordinates: [ <longitude>, <latitude> ] } ,
+              spherical : true } )
+
+db.properties.find({loc: { $near : { $geometry : { type: "Point", coordinates: [50, 4]}}, $maxdistance: 500}})
