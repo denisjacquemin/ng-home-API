@@ -28,25 +28,31 @@ var Property = mongoose.model('Property', propertySchema, 'properties');
 
 var app = express().use(cors());
 
-app.get('/API/v1/long', function (req, res) {
+app.get('/API/v1/geo', function (req, res) {
 
-    var lon = 40;
-    var lat = 5;
+    var lon = req.param('lon');
+    var lat = req.param('lat');
+    var lonlat = {
+        $geometry: {
+            type: "Point",
+            coordinates: [lon, lat]
+        }
+    };
 
     Property.find({
         loc: {
-            $near : {
-                $geometry : {
-                    type: "Point",
-                    coordinates: [lon, lat]
-                }
-            },
-            $maxdistance: 500
+            $near : lonlat,
+            $maxDistance: 5000
         }
     }, function (err, doc) {
         res.send(doc);
     });
 });
+
+app.get('/API/v1/curloc', function (req, res) {
+    res.send("ici");
+});
+
 
 app.get('/API/v1/:city', function (req, res) {
 
