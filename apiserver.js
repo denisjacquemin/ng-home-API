@@ -4,7 +4,7 @@
 var express = require("express");
 var mongoose = require('mongoose');
 var cors = require("cors");
-var geoip = require('geoip-lite');
+var geoip = require('geoip');
 
 var mongoUri = process.env.MONGOLAB_URI ||
     process.env.MONGOHQ_URL ||
@@ -52,10 +52,15 @@ app.get('/API/v1/geo', function (req, res) {
 
 app.get('/API/v1/curloc', function (req, res) {
     var ip = req.connection.remoteAddress;
-    console.log("ip: " + ip);
-    var geo = geoip.lookup(ip);
-    console.log('geo: ' + geo);
-    res.send(geo);
+    var edition = geoip.check('/maxmind/GeoLite2-City.mmdb');
+    console.log(edition);
+
+    var City = geoip.City;
+    var city = new City('/maxmind/GeoLite2-City.mmdb');
+    var city_obj = city.lookupSync(ip);
+    console.log(city_obj);
+
+    res.send(city_obj);
 });
 
 
