@@ -58,6 +58,7 @@ app.get('/API/v1/curloc', function (req, res) {
     var City = geoip.City;
     var city = new City('maxmind/GeoLiteCity.dat');
     var city_obj = city.lookupSync(ip);
+    console.log('ip: ' + ip);
     console.log(city_obj);
 
     res.send(city_obj);
