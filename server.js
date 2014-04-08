@@ -4,6 +4,7 @@
 var express = require("express");
 var mongoose = require('mongoose');
 var cors = require("cors");
+var geoip = require('geoip-lite');
 
 var mongoUri = process.env.MONGOLAB_URI ||
     process.env.MONGOHQ_URL ||
@@ -50,7 +51,9 @@ app.get('/API/v1/geo', function (req, res) {
 });
 
 app.get('/API/v1/curloc', function (req, res) {
-    res.send("ici");
+    var ip = req.connection.remoteAddress;
+    var geo = geoip.lookup(ip);
+    res.send(geo);
 });
 
 
