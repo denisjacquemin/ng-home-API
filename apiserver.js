@@ -52,9 +52,9 @@ app.get('/API/v1/geo', function (req, res) {
 
 app.get('/API/v1/curloc', function (req, res) {
     var ip = req.connection.remoteAddress;
-    console.log(ip);
+    console.log("ip: " + ip);
     var geo = geoip.lookup(ip);
-    console.log(geo);
+    console.log('geo: ' + geo);
     res.send(geo);
 });
 
