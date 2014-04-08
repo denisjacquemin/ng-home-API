@@ -52,11 +52,11 @@ app.get('/API/v1/geo', function (req, res) {
 
 app.get('/API/v1/curloc', function (req, res) {
     var ip = req.connection.remoteAddress;
-    var edition = geoip.check('/maxmind/GeoLite2-City.mmdb');
+    var edition = geoip.check('maxmind/GeoLiteCity.dat');
     console.log(edition);
 
     var City = geoip.City;
-    var city = new City('/maxmind/GeoLite2-City.mmdb');
+    var city = new City('maxmind/GeoLiteCity.dat');
     var city_obj = city.lookupSync(ip);
     console.log(city_obj);
 
