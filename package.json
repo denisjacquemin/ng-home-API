@@ -11,5 +11,8 @@
     "express": "^3.5.1",
     "cors": "^2.2.0",
     "geoip": "^0.5.3"
+  },
+  "devDependencies": {
+    "geocoder": "^0.1.0"
   }
 }

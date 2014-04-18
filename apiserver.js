@@ -5,10 +5,12 @@ var express = require("express");
 var mongoose = require('mongoose');
 var cors = require("cors");
 var geoip = require('geoip');
+var geocoder = require('geocoder');
+
 
 var mongoUri = process.env.MONGOLAB_URI ||
     process.env.MONGOHQ_URL ||
-    'mongodb://localhost/simple';
+    'mongodb://localhost/home';
 
 mongoose.connect(mongoUri);
 
@@ -30,9 +32,11 @@ var Property = mongoose.model('Property', propertySchema, 'properties');
 var app = express().use(cors());
 
 app.get('/API/v1/geo', function (req, res) {
+    console.log('/API/v1/geo' + ' lon: ' + req.param('lon') + ' lat: ' + req.param('lat'));
 
     var lon = req.param('lon');
     var lat = req.param('lat');
+
     var lonlat = {
         $geometry: {
             type: "Point",
@@ -50,6 +54,19 @@ app.get('/API/v1/geo', function (req, res) {
     });
 });
 
+app.get('/API/v1/lonlat/:city', function (req, res) {
+    var lonlat = {};
+    geocoder.geocode(req.params.city, function (err, data) {
+        if (data.status == 'OK') {
+            console.log('status ok');
+            lonlat = data.results[0].geometry.location;
+            res.json(lonlat);
+        }
+        else res.json({err: 'not found'});
+    });
+
+});
+
 app.get('/API/v1/curloc', function (req, res) {
     var ip = req.connection.remoteAddress;
     var edition = geoip.check('maxmind/GeoLiteCity.dat');
@@ -57,7 +74,7 @@ app.get('/API/v1/curloc', function (req, res) {
 
     var City = geoip.City;
     var city = new City('maxmind/GeoLiteCity.dat');
-    var city_obj = city.lookupSync(ip);
+    var city_obj = city.lookupSync('10.164.75.96');
     console.log('ip: ' + ip);
     console.log(city_obj);
 
@@ -66,7 +83,7 @@ app.get('/API/v1/curloc', function (req, res) {
 
 
 app.get('/API/v1/:city', function (req, res) {
-
+    console.log('/API/v1/:city' + ' city: ' + req.params.city);
     // get the long and loc of city
     // make a geoSearch with the map box
     // and return the collection
