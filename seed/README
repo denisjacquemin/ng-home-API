@@ -1,4 +1,4 @@
-mongoimport --db simple --collection properties --jsonArray API/seed/properties.json
+mongoimport --db home --collection properties --jsonArray API/seed/properties.json
 db.properties.ensureIndex({loc: "2dsphere"})
 
 

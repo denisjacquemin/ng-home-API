@@ -5,7 +5,8 @@ var express = require("express");
 var mongoose = require('mongoose');
 var cors = require("cors");
 var geoip = require('geoip');
-var geocoder = require('geocoder');
+//var geocoder = require('geocoder');
+var geocoderSrvc = require('./services/geocoderSrvc');
 
 
 var mongoUri = process.env.MONGOLAB_URI ||
@@ -37,6 +38,13 @@ app.get('/API/v1/geo', function (req, res) {
     var lon = req.param('lon');
     var lat = req.param('lat');
 
+    // if lon lat not provided, get them from google service
+    if (req.param('lon') === undefined || req.param('lat') === undefined) {
+        lonlatByCity = geocoderSrvc.geocodeByCity(req.params.city);
+        lon = lonlatByCity.lon;
+        lat = lonlatByCity.lat;
+    }
+
     var lonlat = {
         $geometry: {
             type: "Point",
@@ -55,15 +63,8 @@ app.get('/API/v1/geo', function (req, res) {
 });
 
 app.get('/API/v1/lonlat/:city', function (req, res) {
-    var lonlat = {};
-    geocoder.geocode(req.params.city, function (err, data) {
-        if (data.status == 'OK') {
-            console.log('status ok');
-            lonlat = data.results[0].geometry.location;
-            res.json(lonlat);
-        }
-        else res.json({err: 'not found'});
-    });
+
+    res.json(geocoderSrvc.geocodeByCity(req.params.city));
 
 });
 
